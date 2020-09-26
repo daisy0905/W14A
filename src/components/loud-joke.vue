@@ -27,7 +27,6 @@
     h3 {
         width: 30vw;
         height: 10vh;
-        display: none;
         background-color: lightgrey;
         padding: 1em;
         text-align: center;

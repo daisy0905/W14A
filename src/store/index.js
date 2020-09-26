@@ -6,7 +6,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    joke: ""
+    joke: "",
+    display: "normal"
   },
 
   mutations: {
@@ -20,6 +21,15 @@ export default new Vuex.Store({
       }).catch((error) => {
         console.log(error)
       })
+    },
+    loud: function(state) {
+      state.display = "loud"
+    },
+    normal: function(state) {
+      state.display = "normal"
+    },
+    snake: function(state) {
+      state.display = "snake"
     }
   },
   actions: {},

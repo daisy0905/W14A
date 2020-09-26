@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <joke-button></joke-button>
-    <normal-joke></normal-joke>
-    <loud-joke></loud-joke>
-    <snake-joke></snake-joke>
+    <normal-joke v-if="Display == 'normal'"></normal-joke>
+    <loud-joke v-else-if="Display == 'loud'"></loud-joke>
+    <snake-joke v-else-if="Display == 'snake'"></snake-joke>
+    <div v-else>Error</div>
     <div id="button-display">
       <button @click = "normalJokeCreation" class="btn">Normal Joke</button>
       <button @click= "loudJokeCreation" class="btn">Loud joke</button>
@@ -27,21 +28,21 @@ export default {
     SnakeJoke
   },
 
-   methods: {
+  computed: {
+    Display() {
+      return this.$store.state.display 
+    }
+  },
+
+  methods: {
             normalJokeCreation: function() {
-                document.getElementById("normal").style.display = "block",
-                document.getElementById("snake").style.display = "none",
-                document.getElementById("loud").style.display = "none"
+              this.$store.commit("normal");
             },
-             loudJokeCreation: function() {
-                document.getElementById("normal").style.display = "none",
-                document.getElementById("snake").style.display = "none",
-                document.getElementById("loud").style.display = "block"
+            loudJokeCreation: function() {
+              this.$store.commit("loud");
             },
             snakeJokeCreation: function() {
-                document.getElementById("normal").style.display = "none",
-                document.getElementById("snake").style.display = "block",
-                document.getElementById("loud").style.display = "none"
+              this.$store.commit("snake");
             }
 
         },

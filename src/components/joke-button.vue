@@ -10,9 +10,6 @@
 
         methods: {
            jokeCreation: function() {
-                document.getElementById("normal").style.display = "block";
-                document.getElementById("snake").style.display = "none";
-                document.getElementById("loud").style.display = "none";
                 this.$store.commit("JokeCreation")
            }
         }
