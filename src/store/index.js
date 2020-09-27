@@ -42,7 +42,7 @@ export default new Vuex.Store({
       return state.joke.toUpperCase();
     },
     SnakeJoke: function(state) {
-      return state.joke.replace(" ", "_")
+      return state.joke.replaceAll(" ", "_")
     }
   }
 });
